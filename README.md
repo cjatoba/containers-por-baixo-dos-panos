@@ -110,7 +110,7 @@ cp /lib/x86_64-linux-gnu/libpthread.so.0 ./lib/
 ```
 
 Após esse pasos ao executar o chroot o comando ls estará disponível
-```
+```bash
 sudo chroot .
 ls
 
