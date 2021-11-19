@@ -3,7 +3,7 @@ Explicação do funcionamento de containers por baixo dos panos
 
 ## Funcionamento geral
 
-Basicamento os containers utilizam conceitos e ferramentas nativas do Linux para isolar diretórios, idolar processos e 
+Basicamento os containers utilizam conceitos e ferramentas nativas do Linux para isolar diretórios, isolar processos e acessos
 
 ## chroot
 
