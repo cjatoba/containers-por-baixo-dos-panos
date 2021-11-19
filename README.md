@@ -81,6 +81,11 @@ Isso acontece pois subimos apenas o básico necessário, para que o comando ls f
 
 Primeiramente vamos sair do chroot, utilizando o atalho Ctrl+d ou digitando exit no terminal
 
+Copiar o ls para o nosso container
+```
+cp /bin/ls ./bin/
+```
+
 Em seguida vamos verificar as bibiotecas necessárias para o funcionamento do ls
 ```
 ldd /bin/ls
@@ -94,7 +99,24 @@ libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007fc7ed679000)
 libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007fc7ed656000)
 ```
 
+Agora vamos copiar as bibliotecas para pasta lib ou lib64 respectivamente para as pastas do noosso container
+```
+cp /lib/x86_64-linux-gnu/libselinux.so.1 ./lib/
+cp /lib/x86_64-linux-gnu/libc.so.6 ./lib/
+cp /lib/x86_64-linux-gnu/libpcre2-8.so.0 ./lib/
+cp /lib/x86_64-linux-gnu/libdl.so.2 ./lib/
+cp /lib64/ld-linux-x86-64.so.2 ./lib64/
+cp /lib/x86_64-linux-gnu/libpthread.so.0 ./lib/
+```
 
+Após esse pasos ao executar o chroot o comando ls estará disponível
+```
+sudo chroot .
+ls
+
+bash-5.0# ls
+bin  lib  lib64  teste
+```
 
 ## namespaces
 
