@@ -25,7 +25,7 @@ sudo chroot .
 chroot: failed to run command ‘/bin/bash’: No such file or directory
 ```
 
-Essa forma ocorre pois para o funcionamento básico do chroot é necessário que exista pelo menos o /bin/bash e os diretórios /lib e /lib64 para guardar as libs necessárias para o funcionamento do bash
+Essa falha ocorre pois para o funcionamento básico do chroot é necessário que exista pelo menos o /bin/bash e os diretórios /lib e /lib64 para guardar as libs necessárias para o funcionamento do bash
 
 Primeiramente vamos criar um diretório /bin
 ```
@@ -34,7 +34,7 @@ mkdir bin
 
 Em seguida vamos copiar o /bin/bash da nossa máquina para a pasta bin que criamos no passo anterior
 ```
-cp -rv /bin/bash bin/
+cp /bin/bash bin/
 ```
 
 Agora vamos verificar as bibliotecas necessárias para o funcionamento do /bin/bash
@@ -48,7 +48,7 @@ libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f32abf0c000)
 /lib64/ld-linux-x86-64.so.2 (0x00007f32ac26a000)
 ```
 
-Conforme a saída acima vamos copiar as bibliotecas necessário para nosso diretório container
+Conforme a saída acima vamos copiar as bibliotecas necessárias para nosso diretório container
 
 Primeiro vamos criar dois diretório lib e lib64
 ```
@@ -109,12 +109,11 @@ cp /lib64/ld-linux-x86-64.so.2 ./lib64/
 cp /lib/x86_64-linux-gnu/libpthread.so.0 ./lib/
 ```
 
-Após esse pasos ao executar o chroot o comando ls estará disponível
+Após esse passos ao executar o chroot o comando ls estará disponível
 ```bash
 sudo chroot .
-ls
 
-bash-5.0# ls
+ls
 bin  lib  lib64  teste
 ```
 
