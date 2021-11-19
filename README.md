@@ -50,12 +50,12 @@ libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f32abf0c000)
 
 Conforme a saída acima vamos copiar as bibliotecas necessárias para nosso diretório container
 
-Primeiro vamos criar dois diretório lib e lib64
+Primeiro vamos criar dois diretórios lib e lib64
 ```
 mkdir lib lib64
 ```
 
-Em seguida vamos copiar as libs para os respctivos diretórios que criamos
+Em seguida vamos copiar as libs para os respectivos diretórios que criamos
 ```
 cp /lib/x86_64-linux-gnu/libtinfo.so.6 ./lib/
 cp /lib/x86_64-linux-gnu/libdl.so.2 ./lib/
